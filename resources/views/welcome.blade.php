@@ -239,7 +239,12 @@
               </tbody>
             </table>
           </div>
-          <a href="#" class="btn btn-primary rounded w-100 mt-4">Place Order</a>
+          <form action="{{ route('paypal.payment') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <input type="hidden" value="40" name="price">
+            <button type="submit" class="btn btn-primary rounded w-100 mt-4">Place Order</button>
+          </form>
         </div>
         <!-- /column -->
       </div>
